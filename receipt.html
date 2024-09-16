@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Receipt</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('ROOMBACK.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #34495E;
+            margin-bottom: 10px;
+        }
+
+        .reference {
+            margin-top: 30px;
+        }
+
+        .reference p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #E74C3C;
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: #95A5A6;
+        }
+
+        .footer p {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        /* Adding a subtle border for visual appeal */
+        .container {
+            border: 3px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Your Booking!</h1>
+        <p>Your reservation has been successfully confirmed.</p>
+        <p>We look forward to hosting you!</p>
+        
+        <div class="reference">
+            <p>Your Reference Number:</p>
+            <p id="referenceNumber"></p>
+        </div>
+
+        <div class="footer">
+            <p>If you have any questions, feel free to contact us at any time.</p>
+            <p>Safe travels!</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a random reference number
+        function generateReferenceNumber() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let ref = '';
+            for (let i = 0; i < 8; i++) {
+                ref += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return ref;
+        }
+
+        // Display the random reference number
+        document.getElementById('referenceNumber').textContent = generateReferenceNumber();
+    </script>
+</body>
+</html>

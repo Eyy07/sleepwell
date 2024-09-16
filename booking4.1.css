@@ -1,0 +1,34 @@
+object {
+    width: 100%;
+    height: 50vh; 
+    border: none; 
+  }
+  @media (max-width: 1024px) {
+    object {
+      height: 70Vh; 
+    }
+  }
+  @media (max-width: 992px) {
+    object {
+      height: 70vh; 
+    }
+  }
+  @media (max-width: 768px) {
+    object {
+      height: 90vh; 
+    }
+  }
+
+  @media (max-width: 480px) {
+    object {
+      height: 90vh;
+    }
+  }
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.highlight {
+    color:#007bff;
+}

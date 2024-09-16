@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Skills</title>
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(66, 93, 66);
+}
+
+.mt-12 {
+    margin-top: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.highlight {
+    color:#FFFFE0;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items for better alignment */
+}
+
+.skill-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #B0E0E6;
+    background-size: cover;
+    background-position: center;
+    margin: 10px;
+    transform: scale(0); /* Start smaller */
+    /* Initially disable animation */
+    animation: none;
+}
+
+/* Animation Keyframes */
+@keyframes grow {
+    from {
+        transform: scale(0); /* Start from small size */
+    }
+    to {
+        transform: scale(1); /* End at full size */
+    }
+}
+
+/* Delay for each circle (optional) */
+.skill-circle.animate:nth-child(1) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.1s; }
+.skill-circle.animate:nth-child(2) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.2s; }
+.skill-circle.animate:nth-child(3) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.3s; }
+.skill-circle.animate:nth-child(4) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.4s; }
+.skill-circle.animate:nth-child(5) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.5s; }
+.skill-circle.animate:nth-child(6) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.6s; }
+.skill-circle.animate:nth-child(7) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.7s; }
+.skill-circle.animate:nth-child(8) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.8s; }
+.skill-circle.animate:nth-child(9) { animation: grow 0.8s ease-in-out forwards; animation-delay: 0.9s; }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+            .skill-circle {
+                width: 80px;
+                height: 80px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+@media screen and (max-width: 480px) {
+    .skill-circle {
+        width: 60px;
+        height: 60px;
+    }
+    .section-title {
+        font-size: 1.2rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <section class="mt-12 text-center" id="skillsSection">
+        <h2 class="section-title">
+            OUR <span class="highlight">CREDENTIALS</span>
+        </h2>
+        <div class="mt-8 flex flex-wrap justify-around">
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('REGISTRATION.jpg');"></div>
+                <p class="mt-2">REGISTRATION</p>
+                <p class="mt-2">CERTIFICATE</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('SSS.jpg');"></div>
+                <p class="mt-2">SSS</p>
+                <p class="mt-2">MEMBERSHIP</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('PHILHEALTH.jpg');"></div>
+                <p class="mt-2">HEALTH</p>
+                <p class="mt-2">CERTIFICATE</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('SANITARY.jpg');"></div>
+                <p class="mt-2">SANITARY</p>
+                <p class="mt-2">PERMIT</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('paymentform.jpg');"></div>
+                <p class="mt-2">PAYMENT</p>
+                <p class="mt-2">FORM</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('DTI.jpg');"></div>
+                <p class="mt-2">DTI</p>
+                <p class="mt-2">PERMIT</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('baranggayclearance.jpg');"></div>
+                <p class="mt-2">BARANGAY</p>
+                <p class="mt-2">CLEARANCE</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('businesspermit.jpg');"></div>
+                <p class="mt-2">BUSINESS</p>
+                <p class="mt-2">PERMIT</p>
+            </div>
+            <div class="text-center">
+                <div class="skill-circle" style="background-image: url('firesafety.jpg');"></div>
+                <p class="mt-2">FIRE SAFETY</p>
+                <p class="mt-2">CERTIFICATE</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const skillsSection = document.getElementById('skillsSection');
+            const skillCircles = document.querySelectorAll('.skill-circle');
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the 'animate' class when the section is in view
+                        skillCircles.forEach(circle => circle.classList.add('animate'));
+                    } else {
+                        // Remove the 'animate' class when the section goes out of view
+                        skillCircles.forEach(circle => circle.classList.remove('animate'));
+                    }
+                });
+            }, { threshold: 0.1 });
+    
+            observer.observe(skillsSection);
+        });
+    </script>
