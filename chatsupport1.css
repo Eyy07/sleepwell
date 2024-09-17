@@ -3,56 +3,66 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000; /* Makes sure it's on top of everything */
+    z-index: 1000; /* Keeps it on top of everything */
     cursor: pointer;
-    display: flex; /* Ensure the chat support is displayed by default */
+    display: flex;
 }
 
+/* Chat bubble style */
 .chat-bubble {
     background-color: #007bff;
     color: white;
-    padding: 10px 15px; /* Adjust padding to fit icon and text */
+    padding: 10px 15px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 1000; /* Also ensure this is on top */
+    z-index: 1000;
 }
 
-/* Style for bot icon inside the chat bubble */
+/* Bot icon inside the chat bubble */
 .chat-icon {
     font-size: 24px;
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px;
 }
 
 .chat-icon i {
-    color: white; /* Icon color inside the chat bubble */
+    color: white;
 }
 
-/* Make sure the chat box stays below the chat bubble */
+/* Chat box */
 .chat-box {
     display: none;
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 300px;
-    height: 400px;
+    width: 90vw; /* 90% of the viewport width */
+    max-width: 400px; /* Max width for larger screens */
+    height: 60vh; /* 60% of the viewport height */
+    max-height: 500px; /* Maximum height */
     border: 1px solid #ccc;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    z-index: 999; /* This is lower than the bubble (1000) */
+    z-index: 999;
 }
 
+/* Chat header */
 .chat-header {
     background-color: #007bff;
     color: white;
-    padding: 8px 12px; /* Adjust padding for a more compact header */
+    padding: 8px 12px;
     display: flex;
     align-items: center;
-    font-size: 16px;
     justify-content: space-between;
+}
+
+/* Chat content */
+.chat-content {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
 }
 
 .header-icon {
@@ -76,11 +86,9 @@
 }
 
 .chat-content {
-    flex: 1; /* Takes up remaining space */
+    flex: 1;
     padding: 10px;
-    overflow-y: auto; /* Allows vertical scrolling */
-    display: flex;
-    flex-direction: column;
+    overflow-y: auto;
 }
 
 .message {
@@ -163,6 +171,7 @@
 }
 
 
+/* Chat input */
 .chat-input {
     padding: 10px;
     border-top: 1px solid #ccc;
@@ -184,4 +193,79 @@
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .chat-support {
+        right: 15px;
+        bottom: 15px;
+        transform: scale(0.9); /* Shrinks the chat support */
+    }
+
+    .chat-box {
+        width: 85vw;
+        height: 50vh;
+    }
+
+    .chat-bubble {
+        padding: 8px 12px; /* Reduce padding */
+    }
+
+    .chat-icon {
+        font-size: 20px; /* Reduce icon size */
+    }
+
+    .chat-header {
+        padding: 6px 10px; /* Reduce padding in header */
+    }
+
+    .chat-header h3 {
+        font-size: 14px;
+    }
+
+    .chat-input input {
+        padding: 4px;
+    }
+
+    .chat-input button {
+        padding: 5px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-support {
+        right: 10px;
+        bottom: 10px;
+        transform: scale(0.75); /* Shrinks further on very small screens */
+    }
+
+    .chat-box {
+        width: 80vw;
+        height: 40vh;
+    }
+
+    .chat-bubble {
+        padding: 6px 10px;
+    }
+
+    .chat-icon {
+        font-size: 18px;
+    }
+
+    .chat-header {
+        padding: 5px 8px;
+    }
+
+    .chat-header h3 {
+        font-size: 12px;
+    }
+
+    .chat-input input {
+        padding: 3px;
+    }
+
+    .chat-input button {
+        padding: 4px 6px;
+    }
 }
